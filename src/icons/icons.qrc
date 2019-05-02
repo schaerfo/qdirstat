@@ -1,0 +1,54 @@
+<RCC>
+    <qresource prefix="/icons">
+	<file>qdirstat.svg</file>
+	<file>qdirstat.png</file>
+	<file>add.png</file>
+	<file>delete.png</file>
+	<file>document-export.png</file>
+	<file>document-import.png</file>
+	<file>edit-copy.png</file>
+	<file>file-manager.png</file>
+	<file>go-bottom.png</file>
+	<file>go-down.png</file>
+	<file>go-top.png</file>
+	<file>go-up.png</file>
+	<file>hard-disk.png</file>
+	<file>open-dir.png</file>
+	<file>preferences.png</file>
+	<file>refresh.png</file>
+	<file>remove.png</file>
+	<file>stop.png</file>
+	<file>terminal.png</file>
+	<file>trashcan.png</file>
+	<file>window-close.png</file>
+	<file>zoom-best-fit.png</file>
+	<file>zoom-in.png</file>
+	<file>zoom-out.png</file>
+
+	<file>tree-medium/dir.png</file>
+	<file>tree-medium/dot-entry.png</file>
+	<file>tree-medium/excluded.png</file>
+	<file>tree-medium/file.png</file>
+	<file>tree-medium/mount-point.png</file>
+	<file>tree-medium/stop.png</file>
+	<file>tree-medium/symlink.png</file>
+	<file>tree-medium/unreadable-dir.png</file>
+	<file>tree-medium/block-device.png</file>
+	<file>tree-medium/char-device.png</file>
+	<file>tree-medium/special.png</file>
+
+	<file>tree-small/dir.png</file>
+	<file>tree-small/dot-entry.png</file>
+	<file>tree-small/excluded.png</file>
+	<file>tree-small/file.png</file>
+	<file>tree-small/mount-point.png</file>
+	<file>tree-small/stop.png</file>
+	<file>tree-small/symlink.png</file>
+	<file>tree-small/unreadable-dir.png</file>
+	<file>tree-small/block-device.png</file>
+	<file>tree-small/char-device.png</file>
+	<file>tree-small/special.png</file>
+
+    </qresource>
+</RCC>
+
