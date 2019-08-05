@@ -175,9 +175,13 @@
     <addaction name="actionShowTreemap"/>
     <addaction name="actionTreemapAsSidePanel"/>
     <addaction name="separator"/>
+    <addaction name="actionTreemapColorByType"/>
+    <addaction name="actionTreemapColorByAge"/>
+    <addaction name="separator"/>
     <addaction name="actionTreemapZoomIn"/>
     <addaction name="actionTreemapZoomOut"/>
     <addaction name="actionResetTreemapZoom"/>
+    <addaction name="separator"/>
     <addaction name="actionTreemapRebuild"/>
    </widget>
    <widget class="QMenu" name="menuGoTo">
@@ -684,7 +688,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Treemap as side panel</string>
+    <string>Treemap as S&amp;ide Panel</string>
    </property>
    <property name="toolTip">
     <string>Show the Treeemap beside the directory tree, otherwise it will be shown beneath.</string>
@@ -825,6 +829,37 @@
    </property>
    <property name="toolTip">
     <string>Help about the Unpackaged Files view (external browser)</string>
+   </property>
+  </action>
+  <action name="actionTreemapColorByType">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by &amp;Type</string>
+   </property>
+   <property name="toolTip">
+    <string>Use treemap colors depending on file type</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+T</string>
+   </property>
+  </action>
+  <action name="actionTreemapColorByAge">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Color by &amp;Age</string>
+   </property>
+   <property name="toolTip">
+    <string>Use treemap colors depending file age</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
    </property>
   </action>
  </widget>

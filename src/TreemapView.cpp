@@ -31,6 +31,7 @@ using namespace QDirStat;
 TreemapView::TreemapView( QWidget * parent ):
     QGraphicsView( parent ),
     _tree(0),
+    _colorMode( ColorByType ),
     _selectionModel(0),
     _selectionModelProxy(0),
     _cleanupCollection(0),

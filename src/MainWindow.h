@@ -317,6 +317,18 @@ protected slots:
     void changeLayout( const QString & name = QString() );
 
     /**
+     * Change the treemap color mode to "by type", i.e. colorize the treemap
+     * tiles according to their MIME categories.
+     **/
+    void setTreemapColorByType();
+
+    /**
+     * Change the treemap color mode to "by age", i.e. colorize the treemap
+     * tiles according to their age (mtime).
+     **/
+    void setTreemapColorByAge();
+
+    /**
      * Show the elapsed time while reading.
      **/
     void showElapsedTime();
@@ -424,6 +436,7 @@ private:
     QDirStat::CleanupCollection * _cleanupCollection;
     QDirStat::ConfigDialog	* _configDialog;
     QActionGroup		* _layoutActionGroup;
+    QActionGroup		* _treemapColorModeActionGroup;
     QPointer<FileTypeStatsWindow> _fileTypeStatsWindow;
     QString			  _dUrl;
     QElapsedTimer		  _stopWatch;

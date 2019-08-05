@@ -54,6 +54,13 @@ namespace QDirStat
 	Q_OBJECT
 
     public:
+
+        enum ColorMode
+        {
+            ColorByType,
+            ColorByAge
+        };
+
 	/**
 	 * Constructor. Remember to set the directory tree with setDirTree()
 	 * and the selection model with setSelectionModel() after creating this
@@ -71,6 +78,17 @@ namespace QDirStat
 	 * not display anything.
 	 **/
 	void setDirTree( DirTree * tree );
+
+        /**
+         * Set the color mode: Colorize treemap tiles by type (by MIME
+         * category) or by age. This does not rebuild the treemap yet.
+         **/
+        void setColorMode( ColorMode mode ) { _colorMode = mode; }
+
+        /**
+         * Return the color mode.
+         **/
+        ColorMode colorMode() const { return _colorMode; }
 
 	/**
 	 * Returns the minimum recommended size for this widget.
@@ -476,6 +494,7 @@ namespace QDirStat
 	// Data members
 
 	DirTree		    * _tree;
+        ColorMode             _colorMode;
 	SelectionModel	    * _selectionModel;
 	SelectionModelProxy * _selectionModelProxy;
 	CleanupCollection   * _cleanupCollection;

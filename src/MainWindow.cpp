@@ -339,6 +339,9 @@ void MainWindow::connectActions()
     connect( _ui->actionTreemapAsSidePanel, SIGNAL( toggled( bool )	 ),
 	     this,			    SLOT  ( treemapAsSidePanel() ) );
 
+    CONNECT_ACTION( _ui->actionTreemapColorByType, this, setTreemapColorByType() );
+    CONNECT_ACTION( _ui->actionTreemapColorByAge,  this, setTreemapColorByAge()  );
+
     CONNECT_ACTION( _ui->actionTreemapZoomIn,	 _ui->treemapView, zoomIn()	    );
     CONNECT_ACTION( _ui->actionTreemapZoomOut,	 _ui->treemapView, zoomOut()	    );
     CONNECT_ACTION( _ui->actionResetTreemapZoom, _ui->treemapView, resetZoom()	    );
@@ -458,6 +461,9 @@ void MainWindow::readSettings()
 	if ( action->data().toString() == _layoutName )
 	    action->setChecked( true );
     }
+
+    _ui->actionTreemapColorByType->setChecked( _ui->treemapView->colorMode() == TreemapView::ColorByType );
+    _ui->actionTreemapColorByAge->setChecked ( _ui->treemapView->colorMode() == TreemapView::ColorByAge  );
 
     readWindowSettings( this, "MainWindow" );
 
@@ -1185,6 +1191,13 @@ void MainWindow::initLayoutActions()
     _ui->actionLayout1->setData( "L1" );
     _ui->actionLayout2->setData( "L2" );
     _ui->actionLayout3->setData( "L3" );
+
+
+    _treemapColorModeActionGroup = new QActionGroup( this );
+    CHECK_NEW( _treemapColorModeActionGroup );
+
+    _treemapColorModeActionGroup->addAction( _ui->actionTreemapColorByType );
+    _treemapColorModeActionGroup->addAction( _ui->actionTreemapColorByAge  );
 }
 
 
@@ -1267,6 +1280,28 @@ FileInfo * MainWindow::selectedDirOrRoot() const
 	sel = _dirTreeModel->tree()->firstToplevel();
 
     return sel;
+}
+
+
+void MainWindow::setTreemapColorByType()
+{
+    if ( _ui->treemapView->colorMode() != TreemapView::ColorByType )
+    {
+        logDebug() << endl;
+        _ui->treemapView->setColorMode( TreemapView::ColorByType );
+        _ui->treemapView->rebuildTreemap();
+    }
+}
+
+
+void MainWindow::setTreemapColorByAge()
+{
+    if ( _ui->treemapView->colorMode() != TreemapView::ColorByAge )
+    {
+        logDebug() << endl;
+        _ui->treemapView->setColorMode( TreemapView::ColorByAge );
+        _ui->treemapView->rebuildTreemap();
+    }
 }
 
 
