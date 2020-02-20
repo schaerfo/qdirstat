@@ -93,6 +93,7 @@ void FileSizeLabel::mousePressEvent( QMouseEvent * event )
 void FileSizeLabel::enterEvent( QEvent * event )
 {
     Q_UNUSED( event );
+    logDebug() << "entering FileSizeLabel " << text() << endl;
 
     if ( haveContextMenu() )
     {
@@ -100,12 +101,17 @@ void FileSizeLabel::enterEvent( QEvent * event )
         f.setUnderline( true );
         setFont( f );
     }
+    else
+    {
+        logDebug() << "no Context menu for " << text() << endl;
+    }
 }
 
 
 void FileSizeLabel::leaveEvent( QEvent * event )
 {
     Q_UNUSED( event );
+    logDebug() << "leaving FileSizeLabel " << text() << endl;
 
     QFont f = font();
     f.setUnderline( false );
