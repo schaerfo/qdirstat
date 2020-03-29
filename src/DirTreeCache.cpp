@@ -706,7 +706,7 @@ void CacheReader::splitPath( const QString & fileNameWithPath,
 			     QString	   & name_ret ) const
 {
     bool absolutePath = fileNameWithPath.startsWith( "/" );
-    QStringList components = fileNameWithPath.split( "/", QString::SkipEmptyParts );
+    QStringList components = fileNameWithPath.split( "/", Qt::SkipEmptyParts );
 
     if ( components.isEmpty() )
     {

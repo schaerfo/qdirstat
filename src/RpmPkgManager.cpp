@@ -24,7 +24,6 @@
 
 
 using std::cerr;
-using std::endl;
 using namespace QDirStat;
 
 
@@ -112,7 +111,7 @@ PkgInfoList RpmPkgManager::parsePkgList( const QString & output )
     {
 	if ( ! line.isEmpty() )
 	{
-	    QStringList fields = line.split( " | ", QString::KeepEmptyParts );
+	    QStringList fields = line.split( " | ", Qt::KeepEmptyParts );
 
 	    if ( fields.size() != 3 )
 		logError() << "Invalid rpm -qa output: " << line << "\n" << endl;
@@ -246,8 +245,9 @@ void RpmPkgManager::rebuildRpmDbWarning()
 
     if ( ! issuedWarning )
     {
-	cerr << "WARNING: rpm is very slow. Run	  sudo rpm --rebuilddb\n" << endl;
 	logWarning()  << "rpm is very slow. Run	  sudo rpm --rebuilddb"	  << endl;
+	cerr << "WARNING: rpm is very slow. Run	  sudo rpm --rebuilddb\n";
+        // cerr is unbuffered; no std::endl needed.
     }
 
     // Add a panel message so the user is sure to see this message.

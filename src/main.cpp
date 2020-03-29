@@ -8,8 +8,8 @@
 
 
 #include <iostream>	// cerr
-
 #include <QApplication>
+
 #include "MainWindow.h"
 #include "DirTreeModel.h"
 #include "PkgFilter.h"
@@ -44,8 +44,7 @@ void usage( const QStringList & argList )
          << "- Full regexps with \".*\" and/or \"^\" and/or \"$\"\n"
          << "- Exact match: \"pkg:/=mypkg\"\n"
          << "- All packages: \"pkg:/\"\n"
-	 << "\n"
-	 << std::endl;
+	 << "\n\n"; // cerr is unbuffered; no endl required.
 
     logError() << "FATAL: Bad command line args: " << argList.join( " " ) << endl;
     // Simply exit(1) here results in a segfault (?).

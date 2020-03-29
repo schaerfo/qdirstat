@@ -33,6 +33,29 @@ enum LogSeverity
 };
 
 
+#if (QT_VERSION >= QT_VERSION_CHECK( 5, 15, 0 )) && ! defined(NO_OVERRIDE_ENDL)
+#  define endl    Qt::endl
+
+   // The Trolls deprecated QTextStream::endl with Qt 5.15, trying to force
+   // everybody to use Qt::endl every time. This is a great break of source
+   // code compatibility, and it makes the code much less readable.
+   //
+   // Seriously, Trolls, WTF?!
+   //
+   // This kludge (mis-) uses the C preprocessor to save some dignity and code
+   // readability. The cost is that it also affects std::endl. But QDirStat
+   // doesn't need that anyway; at the few places it was used, it was used for
+   // cerr, and the cerr ostream is unbuffered by default, so std::err simply
+   // writes a newline character to cerr which is much easier to achieve with a
+   // << "...\n". Failing that, we can always explicitly flush with << flush.
+   //
+   // To suppress this override, use
+   //   #define NO_OVERRIDE_ENDL
+   // before
+   //   #include "Logger.h"
+#endif
+
+
 // Log macros for stream (QTextStream) output.
 //
 // Unlike qDebug() etc., they also record the location in the source code that

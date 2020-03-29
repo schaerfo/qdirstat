@@ -619,7 +619,7 @@ QString QDirStat::formatTime( time_t rawTime )
 
 QString QDirStat::baseName( const QString & fileName )
 {
-    QStringList segments = fileName.split( '/', QString::SkipEmptyParts );
+    QStringList segments = fileName.split( '/', Qt::SkipEmptyParts );
     return segments.isEmpty() ? "" : segments.last();
 }
 
